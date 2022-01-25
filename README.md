@@ -1,7 +1,9 @@
+Software Engineering Methods
+
 ![workflow](https://github.com/AliMorabih/sem/actions/workflows/main.yml/badge.svg)
 
-Software Engineering Methods 
-Test 3 5
+[![LICENSE](https://img.shields.io/github/license/AliMorabih/sem.svg?style=flat-square)](https://github.com/<github-username>/sem/blob/master/LICENSE)
 
+[![Releases](https://img.shields.io/github/release/AliMorabih/sem/all.svg?style=flat-square)](https://github.com/<github-username>/sem/releases)
 
-
+![GitHub](https://img.shields.io/github/license/AliMorabih/sem)
