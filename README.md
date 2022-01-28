@@ -6,4 +6,4 @@ Software Engineering Methods
 
 
 
-.. image:: https://img.shields.io/github/workflow/status/AliMorabih/sem/mail.yml/develop?style=flat-square   :alt: GitHub Workflow Status (branch)
+![GitHub Workflow Status (develop)](https://img.shields.io/github/workflow/status/AliMorabih/sem/mail.yml/develop?style=flat-square)
