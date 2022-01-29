@@ -7,10 +7,17 @@
     <groupId>com.napier.sem</groupId>
     <artifactId>seMethods</artifactId>
     <version>1.0.1.0</version>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver</artifactId>
+            <version>3.12.10</version>
+        </dependency>
+    </dependencies>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <projet.build.sourceEncoding>UTF-8</projet.build.sourceEncoding>
     </properties>
 
 </project>
