@@ -8,4 +8,4 @@ Software Engineering Methods
 
 ![GitHub Workflow Status (develop)](https://img.shields.io/github/workflow/status/AliMorabih/sem/mail.yml/develop?style=flat-square)
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/AliMorabih/sem/A%20workflow%20for%20my%20Hello%20World%20App/develop)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/AliMorabih/sem/A-workflow-for-my-Hello-World-App/develop)
