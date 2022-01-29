@@ -6,5 +6,7 @@ Software Engineering Methods
 
 [![Releases](https://img.shields.io/github/release/AliMorabih/sem/all.svg?style=flat-square)](https://github.com/<github-username>/sem/releases)
 
-![workflow](https://github.com/AliMorabiih/sem/actions/workflows/main.yml/badge.svg)
+
+
+
 
