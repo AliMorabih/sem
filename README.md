@@ -4,7 +4,6 @@ Software Engineering Methods
 
 [![LICENSE](https://img.shields.io/github/license/AliMorabih/sem.svg?style=flat-square)](https://github.com/<github-username>/sem/blob/master/LICENSE)
 
-[![Releases](https://img.shields.io/github/release/AliMorabih/sem/all.svg?style=flat-square)](https://github.com/<github-username>/sem/releases)
 
 
-
+![GitHub Workflow Status (develop)](https://img.shields.io/github/workflow/status/AliMorabih/sem/mail.yml/develop?style=flat-square)
