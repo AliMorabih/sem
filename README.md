@@ -7,7 +7,7 @@ Software Engineering Methods
 [![Releases](https://img.shields.io/github/release/AliMorabih/sem/all.svg?style=flat-square)](https://github.com/<github-username>/sem/releases)
 
 
-
 ![workflow](https://github.com/AliMorabih/sem/actions/workflows/main.yml/badge.svg)
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/AliMorabih/sem/HelloWorld-App/develop)
+
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/AliMorabih/sem/HelloWorld-App/master)
