@@ -8,4 +8,3 @@ Software Engineering Methods
 
 ![workflow](https://github.com/AliMorabiih/sem/actions/workflows/main.yml/badge.svg)
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/AliMorabih/sem/HelloWorld-App/develop)
