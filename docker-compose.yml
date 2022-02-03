@@ -1,0 +1,19 @@
+# Add Docker Compose File
+# Now we can create a Docker Compose file. This is a configuration file that has more than one service defined.
+# We want to have our application and our database services up and running.
+# Therefore, our initial file (saved in docker-compose.yml in the root) is as follows
+#  **********************************************************************************************
+#  When running Docker from the command line, we use docker-compose up to build and run a composed service.
+#  IntelliJ understands Docker compose files, so we don't have to worry. We will modify our GitHub Actions file.
+
+version: '3'
+services:
+  # Application Dockerfile is in same folder which is .
+  app:
+    build: .
+
+  # db is is db folder
+  db:
+    build: db/.
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
