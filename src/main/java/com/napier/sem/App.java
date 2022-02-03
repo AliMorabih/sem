@@ -18,10 +18,10 @@ public class App
         // Disconnect from database
         a.disconnect();
     }
-    /**
+     /**
      * Connection to MySQL database.
      */
-    private Connection con = null;
+   private Connection con = null;
 
     /**
      * Connect to the MySQL database.
