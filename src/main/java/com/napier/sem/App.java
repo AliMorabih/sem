@@ -12,6 +12,7 @@ public class App
         a.connect();
         // Get Employee
         Employee emp = a.getEmployee(255530);
+        //Employee emp = a.getEmployee();
         // Display results
         a.displayEmployee(emp);
 
@@ -96,18 +97,26 @@ public class App
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
-            /*String strSelect =
-                    "SELECT emp_no, first_name, last_name "
-                            + "FROM employees "
-                            + "WHERE emp_no = " + ID;*/
+           //String strSelect = "SELECT emp_no, first_name, last_name "
+             //               + "FROM employees "
+               //             + "WHERE emp_no = " + ID;
+
+        /**String strSelect =  "SELECT  employees.emp_no, emp_no, first_name, last_name,  titles.to_date, dept_emp.to_date, salaries.to_date, dept_manager.to_date"
+                + "FROM employees, titles, dept_emp, salaries, departements, dept_manager "
+                + "WHERE  salaries.to_date = '9999-01-01'"
+                + "WHERE  titles.to_date = '9999-01-01'"
+                + "WHERE  dept_emp.to_date = '9999-01-01'" ;**/
+
             String strSelect =  " SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary "
             + " FROM employees, salaries, titles "
-            + " WHERE employees.emp_no = salaries.emp_no "
+            +" WHERE employees.emp_no = salaries.emp_no "
             + " AND employees.emp_no = titles.emp_no "
             + " AND salaries.to_date = '9999-01-01' "
-            + "AND titles.to_date = '9999-01-01' "
-            + " AND titles.title = '<title>' "
-            + " ORDER BY employees.emp_no ASC " ;
+            + " AND titles.to_date = '9999-01-01' "
+            + " AND titles.title = 'Engineer' "
+            + " RDER BY employees.emp_no ASC ";
+
+
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
