@@ -97,13 +97,24 @@ public class App
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
-            String strSelect = " SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary, titles.to_date  "
-                    +" FROM employees, salaries, titles, dept_emp "
+            /**String strSelect = " SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary, titles.to_date  "
+                    +" FROM employees, salaries,  titles, dept_emp "
                     +" WHERE employees.emp_no = salaries.emp_no"
                     +" AND employees.emp_no = dept_emp.emp_no"
                     +" AND employees.emp_no = titles.emp_no"
                     +" AND salaries.to_date = '9999-01-01'"
-                    +" AND titles.to_date = '9999-01-01'";
+                    +" AND titles.to_date = '9999-01-01'"; **/
+
+            String strSelect = " SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary "
+                 + " FROM employees, salaries, titles "
+                 + " WHERE employees.emp_no = salaries.emp_no "
+                 + "AND employees.emp_no = titles.emp_no "
+                 + "AND salaries.to_date = '9999-01-01' "
+                 + "AND titles.to_date = '9999-01-01' "
+                 + "AND titles.title = 'Engineer' "
+                 + "ORDER BY employees.emp_no ASC ";
+
+
 
 
             // Execute SQL statement
