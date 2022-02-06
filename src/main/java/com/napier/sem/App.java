@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class App
 {
@@ -12,7 +13,9 @@ public class App
         a.connect();
         // Get Employee
         Employee emp = a.getEmployee();
-       //Employee emp = a.getEmployee(255530 );
+        //Employee emp = a.getEmployee(255530 );
+
+
         // Display results
         a.displayEmployee(emp);
 
@@ -90,20 +93,13 @@ public class App
     Test that the ResultSet has a value - call next on the ResultSet and check this is true.
     Extract the information from the current record in the ResultSet using getInt for integer data, getString for string data, etc.
     *******************************************************************************************************************/
-    public Employee getEmployee()
+   public Employee getEmployee()
     {
         try
         {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
-            /**String strSelect = " SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary, titles.to_date  "
-                    +" FROM employees, salaries,  titles, dept_emp "
-                    +" WHERE employees.emp_no = salaries.emp_no"
-                    +" AND employees.emp_no = dept_emp.emp_no"
-                    +" AND employees.emp_no = titles.emp_no"
-                    +" AND salaries.to_date = '9999-01-01'"
-                    +" AND titles.to_date = '9999-01-01'"; **/
 
             String strSelect = " SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary "
                  + " FROM employees, salaries, titles "
@@ -139,7 +135,8 @@ public class App
             return null;
         }
     }
-    /**************************************************************************************************
+
+     /**************************************************************************************************
     * We cannot really test our get employee functionality until we display the output. At the moment,
     * we will just display to the console. The displayEmployee method for our App is below:
     * ***********************************************************************************************/
