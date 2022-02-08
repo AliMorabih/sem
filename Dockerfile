@@ -1,7 +1,7 @@
 FROM openjdk:latest
-COPY ./target/seMethods-0.1.0.2-jar-with-dependencies.jar /tmp
+COPY ./target/seMethods-0.1.0.4-jar-with-dependencies.jar /tmp
 WORKDIR /tmp
-ENTRYPOINT ["java", "-jar", "seMethods-0.1.0.2-jar-with-dependencies.jar"]
+ENTRYPOINT ["java", "-jar", "seMethods-0.1.0.4-jar-with-dependencies.jar"]
 
 #  at this stage we will build a image (Build the Docker Image)
 # (We can do this by clicking the green triangles in the  Dockerfile and selecting Build Image for Dockerfile. )
