@@ -16,7 +16,7 @@ public class App
         // Display results
         ArrayList<Employee> employees = a.getEmployee();
 
-        a.printSalaries(employees);
+        a.printEpmplyeeByRole(employees);
 
         // Disconnect from database
         a.disconnect();
@@ -93,8 +93,8 @@ public class App
     Extract the information from the current record in the ResultSet using getInt for integer data, getString for string data, etc.
     *******************************************************************************************************************/
     /**
-     * Gets all the current employees and salaries.
-     * @return A list of all employees and salaries, or null if there is an error.
+     * Salaries by Role Feature
+     * @return A list of all employees and salaries by Role and we filter by Engineer
      */
     public ArrayList<Employee> getEmployee()
     {
@@ -141,7 +141,7 @@ public class App
      * Prints a list of employees.
      * @param employees The list of employees to print.
      */
-    public void printSalaries(ArrayList<Employee> employees)
+    public void printEpmplyeeByRole(ArrayList<Employee> employees)
     {
         // Print header
         System.out.println(String.format("%-10s %-15s %-20s %-8s", "Emp No", "First Name", "Last Name", "Salary"));
@@ -154,22 +154,6 @@ public class App
             System.out.println(emp_string);
         }
     }
-    /**************************************************************************************************
-    * We cannot really test our get employee functionality until we display the output. At the moment,
-    * we will just display to the console. The displayEmployee method for our App is below:
-    * ***********************************************************************************************/
-    public void displayEmployee(Employee emp)
-    {
-        if (emp != null)
-        {
-            System.out.println(
-                    emp.emp_no + " "
-                            + emp.first_name + " "
-                            + emp.last_name + "\n"
-                            + emp.title + "\n"
-                            + "Salary:" + emp.salary + "\n"
-                            + emp.dept_name + "\n"
-                            + "Manager: " + emp.manager + "\n");
-        }
-    }
+
+
 }
