@@ -113,10 +113,9 @@ public class App
                 + " AND dept_emp.dept_no = departments.dept_no "
                 + " AND employees.emp_no = dept_manager.emp_no  "
                 + " AND salaries.to_date = '9999-01-01' "
-                + " AND titles.to_date = '9999-01-01' " ;
-
-
-
+                + " AND titles.to_date = '9999-01-01' "
+                + " AND dept_emp.to_date = '9999-01-01' "
+                + " AND dept_manager.to_date = '9999-01-01' " ;
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
