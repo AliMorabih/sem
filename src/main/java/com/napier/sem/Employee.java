@@ -1,5 +1,8 @@
 package com.napier.sem;
 
+
+
+
 /** Getting an Employee
  We are now ready to add a new method to extract the employee information. To make life easier,
  we will create an Employee class. To do this, perform the following steps:**/
@@ -33,11 +36,11 @@ public class Employee {
     /**
      * Employee's current department
      */
-    public String dept_name;
+    public Department dept;
 
     /**
      * Employee's manager
      */
-    public String manager;
+    public Employee manager;
 
 }
