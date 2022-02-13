@@ -3,8 +3,7 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class App
-{
+public class App {
     public static void main(String[] args) {
         // Create new Application
         App a = new App();
