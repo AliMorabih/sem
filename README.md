@@ -1,12 +1,11 @@
 Software Engineering Methods
 
+* Master Build Status ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/AliMorabih/sem/HelloWorld-App/master)
 
-* Develop Build Status ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/AliMorabih/sem/HelloWorld-App/develop)
+![workflow](https://github.com/AliMorabih/sem/actions/workflows/main.yml/badge.svg)
 
-* License [![LICENSE](https://img.shields.io/github/license/AliMorabih/sem.svg?style=flat-square)](https://github.com/<github-username>/sem/blob/master/LICENSE)
+[![LICENSE](https://img.shields.io/github/license/AliMorabih/sem.svg?style=flat-square)](https://github.com/<github-username>/sem/blob/master/LICENSE)
 
-* Release [![Releases](https://img.shields.io/github/release/AliMorabih/sem/all.svg?style=flat-square)](https://github.com/<github-username>/sem/releases)
+[![Releases](https://img.shields.io/github/release/AliMorabih/sem/all.svg?style=flat-square)](https://github.com/<github-username>/sem/releases)
 
-
-
-
+#Tags
