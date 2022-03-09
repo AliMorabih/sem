@@ -3,11 +3,14 @@ package com.napier.sem;
 import java.sql.*;
 import java.util.ArrayList;
 
+public class App2 {
 
-public class App {
+// I add this class to run the test DisplayEmployee
+
+
     public static void main(String[] args) {
         // Create new Application
-        App a = new App();
+        App2 a = new App2();
 
         // Connect to database
         a.connect();
@@ -17,7 +20,6 @@ public class App {
         a.printSalarybydep(employees);
         // Test the size of the returned data - should be 240124
 
-        a.displayEmployee(employees);
 
         //a.printSalarybydep(employees);
         // Disconnect from database
@@ -77,6 +79,22 @@ public class App {
 
 
 
+    /**************************************************************************************************
+     * We cannot really test our get employee functionality until we display the output. At the moment,
+     * we will just display to the console. The displayEmployee method for our App is below:
+     * ***********************************************************************************************/
+    public void displayEmployee(Employee emp) {
+        if (emp != null) {
+            System.out.println(
+                    emp.emp_no + " "
+                            + emp.first_name + " "
+                            + emp.last_name + "\n"
+                            + emp.title + "\n"
+                            + "Salary:" + emp.salary + "\n"
+                            + emp.dept + "\n"
+                            + "Manager: " + emp.manager + "\n");
+        }
+    }
 
     public Department getDepartment(String dept_name) {
         return  null;
@@ -88,14 +106,9 @@ public class App {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-          " SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary "
-                +  "FROM employees, salaries, dept_emp, departments "
-                +  "WHERE employees.emp_no = salaries.emp_no "
-                +  "AND employees.emp_no = dept_emp.emp_no "
-                +  "AND dept_emp.dept_no = departments.dept_no "
-                +  "AND salaries.to_date = '9999-01-01' "
-                +  "AND departments.dept_name = 'Sales'"
-                +  "ORDER BY employees.emp_no ASC  ";
+                    " SELECT employees.emp_no, employees.first_name, employees.last_name "
+                            +  "FROM employees " ;
+
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -106,7 +119,6 @@ public class App {
                 emp.emp_no = rset.getInt("employees.emp_no");
                 emp.first_name = rset.getString("employees.first_name");
                 emp.last_name = rset.getString("employees.last_name");
-                emp.salary = rset.getInt("salaries.salary");
                 employees.add(emp);
             }
             return employees;
@@ -125,47 +137,6 @@ public class App {
             return;
         }
         // Print header
-        System.out.println(String.format(" %-10s %-15s %-20s %-8s %-8s ", "Emp No", "First Name", "Last Name", "Salary", "Department"));
-        // Loop over all employees in the list
-        for (Employee emp : employees)
-        {
-            if (emp == null)
-                continue;
-            String emp_string =
-                    String.format(" %-10s %-15s %-20s %-8s %-8s ",
-                            emp.emp_no, emp.first_name, emp.last_name, emp.salary,emp.dept);
-            System.out.println(emp_string);
-        }
-    }
-
-    /**************************************************************************************************
-     * We cannot really test our get employee functionality until we display the output. At the moment,
-     * we will just display to the console. The displayEmployee method for our App is below:
-     * ***********************************************************************************************/
-
-    /**public void displayEmployee(Employee emp) {
-        if (emp != null) {
-            System.out.println(
-                    emp.emp_no + " "
-                            + emp.first_name + " "
-                            + emp.last_name + "\n"
-                            + emp.title + "\n"
-                            + "Salary:" + emp.salary + "\n"
-                            + emp.dept + "\n"
-                            + "Manager: " + emp.manager + "\n");
-        }
-    }
-    **/
-
-    public void displayEmployee(ArrayList<Employee> employees)
-    {
-        // Check employees is not null
-        if (employees == null)
-        {
-            System.out.println("No employees");
-            return;
-        }
-        // Print header
         System.out.println(String.format(" %-10s %-15s %-20s ", "Emp No", "First Name", "Last Name"));
         // Loop over all employees in the list
         for (Employee emp : employees)
@@ -173,7 +144,7 @@ public class App {
             if (emp == null)
                 continue;
             String emp_string =
-                    String.format(" %-10s %-15s %-20s ",
+                    String.format(" %-10s %-15s %-20s  ",
                             emp.emp_no, emp.first_name, emp.last_name);
             System.out.println(emp_string);
         }

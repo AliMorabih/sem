@@ -19,6 +19,7 @@ public class AppTest
         app = new App();
     }
 
+
     @Test
     void printSalariesTestNull()
     {
@@ -50,4 +51,23 @@ public class AppTest
         employees.add(emp);
         app.printSalarybydep(employees);
     }
+      /*
+      * Exercise Lab06
+      * This is the test for Display Employee
+      * * */
+    @Test
+    void displayEmployee()
+    {
+    ArrayList<Employee> employess = new ArrayList<Employee>();
+    app.displayEmployee(employess);
+    }
+
+
+    /**@Test
+    void Displayemployee()
+    {
+        ArrayList<Employee> employess = new ArrayList<Employee>();
+        app.printSalarybydep(employess);
+    }**/
+
 }
