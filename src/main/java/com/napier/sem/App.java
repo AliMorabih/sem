@@ -130,7 +130,6 @@ public class App {
             System.out.println("Failed to get salary by departement");
             return null;
         }
-
     }
     public void printSalarybydep(ArrayList<Employee> employees)
     {
