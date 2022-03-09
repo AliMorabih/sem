@@ -16,12 +16,14 @@ public class AppTest
     @BeforeAll
     static void init()
     {
+
         app = new App();
     }
 
     @Test
     void printSalariesTestNull()
     {
+
         app.printSalarybydep(null);
     }
     @Test
