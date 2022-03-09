@@ -61,13 +61,4 @@ public class AppTest
     ArrayList<Employee> employess = new ArrayList<Employee>();
     app.displayEmployee(employess);
     }
-
-
-    /**@Test
-    void Displayemployee()
-    {
-        ArrayList<Employee> employess = new ArrayList<Employee>();
-        app.printSalarybydep(employess);
-    }**/
-
 }
