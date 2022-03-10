@@ -15,10 +15,14 @@ public class App {
         }else{
             a.connect(args[0], Integer.parseInt(args[1]));
         }
+        // Get Employee
+        Employee emp = a.getEmployee(255530);
+        // Display results
+        a.displayEmployee(emp);
 
         // Extract employee salary information
-        ArrayList<Employee> employees = a.getSalariesByDepartment();
-        a.printSalarybydep(employees);
+       // ArrayList<Employee> employees = a.getSalariesByDepartment();
+       // a.printSalarybydep(employees);
         // Test the size of the returned data - should be 240124
 
         //a.displayEmployee(employees);
@@ -79,21 +83,14 @@ public class App {
             }
         }
     }
-
-
-
-
-    public Department getDepartment(String dept_name) {
-        return  null;
-    }
-
+    /**
     public ArrayList<Employee> getSalariesByDepartment() {
         try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-          " SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary "
+          "SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary "
                 +  "FROM employees, salaries, dept_emp, departments "
                 +  "WHERE employees.emp_no = salaries.emp_no "
                 +  "AND employees.emp_no = dept_emp.emp_no "
@@ -118,6 +115,39 @@ public class App {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get salary by departement");
+            return null;
+        }
+    }**/
+    public Employee getEmployee(int ID)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT emp_no, first_name, last_name "
+                            + "FROM employees "
+                            + "WHERE emp_no = " + ID;
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return new employee if valid.
+            // Check one is returned
+            if (rset.next())
+            {
+                Employee emp = new Employee();
+                emp.emp_no = rset.getInt("emp_no");
+                emp.first_name = rset.getString("first_name");
+                emp.last_name = rset.getString("last_name");
+                return emp;
+            }
+            else
+                return null;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get employee details");
             return null;
         }
     }
@@ -148,7 +178,7 @@ public class App {
      * we will just display to the console. The displayEmployee method for our App is below:
      * ***********************************************************************************************/
 
-    /**public void displayEmployee(Employee emp) {
+    public void displayEmployee(Employee emp) {
         if (emp != null) {
             System.out.println(
                     emp.emp_no + " "
@@ -160,9 +190,8 @@ public class App {
                             + "Manager: " + emp.manager + "\n");
         }
     }
-    **/
 
-    public void displayEmployee(ArrayList<Employee> employees)
+    /**public void displayEmployee(ArrayList<Employee> employees)
     {
         // Check employees is not null
         if (employees == null)
@@ -182,5 +211,5 @@ public class App {
                             emp.emp_no, emp.first_name, emp.last_name);
             System.out.println(emp_string);
         }
-    }
+    }**/
 }

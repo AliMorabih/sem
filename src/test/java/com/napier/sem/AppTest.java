@@ -57,10 +57,11 @@ public class AppTest
       * Exercise Lab06
       * This is the test for Display Employee
       * * */
-    @Test
+  /**  @Test
     void displayEmployee()
     {
     ArrayList<Employee> employess = new ArrayList<Employee>();
     app.displayEmployee(employess);
     }
+  **/
 }
