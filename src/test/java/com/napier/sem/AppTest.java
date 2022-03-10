@@ -55,7 +55,7 @@ public class AppTest
     }
       /*
       * Exercise Lab06
-      * This is the test for Display Employee
+      * This is the test for Display Employee for the Lab6
       * * */
   /**  @Test
     void displayEmployee()
