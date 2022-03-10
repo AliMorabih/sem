@@ -16,6 +16,7 @@ public class AppTest
     @BeforeAll
     static void init()
     {
+
         app = new App();
     }
 
@@ -23,6 +24,7 @@ public class AppTest
     @Test
     void printSalariesTestNull()
     {
+
         app.printSalarybydep(null);
     }
     @Test
