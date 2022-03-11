@@ -21,8 +21,8 @@ public class App {
         a.displayEmployee(emp);
 
         // Extract employee salary information
-       // ArrayList<Employee> employees = a.getSalariesByDepartment();
-       // a.printSalarybydep(employees);
+        ArrayList<Employee> employees = a.getSalariesByDepartment();
+        a.printSalarybydep(employees);
         // Test the size of the returned data - should be 240124
 
         //a.displayEmployee(employees);
@@ -83,7 +83,7 @@ public class App {
             }
         }
     }
-    /**
+
     public ArrayList<Employee> getSalariesByDepartment() {
         try {
             // Create an SQL statement
@@ -117,7 +117,8 @@ public class App {
             System.out.println("Failed to get salary by departement");
             return null;
         }
-    }**/
+    }
+
     public Employee getEmployee(int ID)
     {
         try

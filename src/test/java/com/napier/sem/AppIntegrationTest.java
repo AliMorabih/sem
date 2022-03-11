@@ -19,8 +19,7 @@ public class AppIntegrationTest
         app.connect("localhost:33060", 30000);
 
     }
-
-    @Test
+        @Test
     void testGetEmployee()
     {
         Employee emp = app.getEmployee(255530);
@@ -28,4 +27,5 @@ public class AppIntegrationTest
         assertEquals(emp.first_name, "Ronghao");
         assertEquals(emp.last_name, "Garigliano");
     }
+
 }
