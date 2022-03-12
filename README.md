@@ -12,4 +12,4 @@ Software Engineering Methods
 
 
 
-cat codecov.yml | curl --data-binary @- https://codecov.io/validate
+[![codecov](https://codecov.io/gh/AliMorabih/sem/branch/master/graph/badge.svg?token=WNIJ10E5AO)](https://codecov.io/gh/AliMorabih/sem)
