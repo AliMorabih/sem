@@ -12,4 +12,4 @@ Software Engineering Methods
 
 
 
-[![codecov](https://codecov.io/gh/AliMorabih/sem/branch/master/graph/badge.svg?token=WNIJ10E5AO)](https://codecov.io/gh/AliMorabih/sem)
+* CodeCoverage [![codecov](https://codecov.io/gh/AliMorabih/sem/branch/master/graph/badge.svg?token=WNIJ10E5AO)](https://codecov.io/gh/AliMorabih/sem)
