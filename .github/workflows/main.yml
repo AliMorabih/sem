@@ -1,11 +1,10 @@
-name: A workflow for my Hello World App
-on:
+ name: A workflow for my Hello World App
+ on:
   push:
     branches:
-      - feature/deployment
-      - lab07
-jobs:
-  UnitTests:
+      - master
+ jobs:
+   UnitTests:
     name: Unit Tests
     runs-on: ubuntu-latest
     steps:
