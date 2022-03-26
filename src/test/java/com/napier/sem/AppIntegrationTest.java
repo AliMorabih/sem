@@ -16,18 +16,19 @@ public class AppIntegrationTest
     static void init()
     {
         app = new App();
-        app.connect("localhost:33060", 30000);
+       app.connect("localhost:33060");
 
     }
 
     @Test
-    void testGetEmployee()
+    void printEmployeeInfo()
     {
-        Employee emp = app.getEmployee(255530);
-        assertEquals(emp.emp_no, 255530);
+        Employee emp = app.getEmployee( "10002");
+        assertEquals(emp.emp_no, 10002);
         assertEquals(emp.first_name, "Ronghao");
-        assertEquals(emp.last_name, "Garigliano");
+        assertEquals(emp.last_name, "Simmel");
     }
+    /*
     @Test
     void testAddEmployee()
     {
@@ -41,4 +42,6 @@ public class AppIntegrationTest
         assertEquals(emp.first_name, "Kevin");
         assertEquals(emp.last_name, "Chalmers");
     }
+
+     */
 }

@@ -22,46 +22,12 @@ public class AppTest
 
 
     @Test
-    void printSalariesTestNull()
+    void printEmployeeInfo()
     {
+        app.getEmployee("10002");
 
-        app.printSalarybydep(null);
     }
-    @Test
-    void printSalariesTestEmpty()
-    {
-        ArrayList<Employee> employess = new ArrayList<Employee>();
-        app.printSalarybydep(employess);
-    }
-    @Test
-    void printSalariesTestContainsNull()
-    {
-        ArrayList<Employee> employess = new ArrayList<Employee>();
-        employess.add(null);
-        app.printSalarybydep(employess);
-    }
-    @Test
-    void printSalaries()
-    {
-        ArrayList<Employee> employees = new ArrayList<Employee>();
-        Employee emp = new Employee();
-        emp.emp_no = 1;
-        emp.first_name = "Kevin";
-        emp.last_name = "Chalmers";
-        emp.title = "Engineer";
-        emp.salary = 55000;
-        employees.add(emp);
-        app.printSalarybydep(employees);
-    }
-      /*
-      * Exercise Lab06
-      * This is the test for Display Employee for the Lab6
-      * * */
-  /**  @Test
-    void displayEmployee()
-    {
-    ArrayList<Employee> employess = new ArrayList<Employee>();
-    app.displayEmployee(employess);
-    }
-  **/
+
+
+
 }
