@@ -1,54 +1,64 @@
 package com.napier.sem;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
 
 public class App {
     public static void main(String[] args) {
-        // Create new Application
-        App a = new App();
+        // Create new Application and connect to database
+        App app = new App();
 
-        // Connect to database
-        if(args.length < 1){
-            a.connect("localhost:33060", 30000);
-        }else{
-            a.connect(args[0], Integer.parseInt(args[1]));
+        if (args.length < 1) {
+            app.connect("localhost:33060", 0);
+        } else {
+            app.connect(args[0], Integer.parseInt(args[1]));
         }
-        // Get Employee
-        Employee emp = a.getEmployee(255530);
-        // Display results
-        a.displayEmployee(emp);
+        ArrayList<Employee> employees = app.getSalariesByRole();
+        app.outputEmployees(employees, "ManagerSalaries.md");
 
-        // Extract employee salary information
-       // ArrayList<Employee> employees = a.getSalariesByDepartment();
-       // a.printSalarybydep(employees);
-        // Test the size of the returned data - should be 240124
-
-        //a.displayEmployee(employees);
-
-        //a.printSalarybydep(employees);
         // Disconnect from database
-        a.disconnect();
+        app.disconnect();
     }
     /*
     * Add Empty methode
     * */
-    public void addEmployee(Employee emp)
-    {
-        try
-        {
-            Statement stmt = con.createStatement();
-            String strUpdate =
-                    "INSERT INTO employees (emp_no, first_name, last_name, birth_date, gender, hire_date) " +
-                            "VALUES (" + emp.emp_no + ", '" + emp.first_name + "', '" + emp.last_name + "', " +
-                            "'9999-01-01', 'M', '9999-01-01')";
-            stmt.execute(strUpdate);
+
+    /**
+     * Outputs to Markdown
+     *
+     * @param employees
+     */
+    public void outputEmployees(ArrayList<Employee> employees, String filename) {
+        // Check employees is not null
+        if (employees == null) {
+            System.out.println("No employees");
+            return;
         }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to add employee");
+
+        StringBuilder sb = new StringBuilder();
+        // Print header
+        sb.append("| Emp No | First Name | Last Name | Title | Salary | Department |                    Manager |\r\n");
+        sb.append("| --- | --- | --- | --- | --- | --- | --- |\r\n");
+        // Loop over all employees in the list
+        for (Employee emp : employees) {
+            if (emp == null) continue;
+            sb.append("| " + emp.emp_no + " | " +
+                    emp.first_name + " | " + emp.last_name + " | " +
+                    emp.title + " | " + emp.salary + " | "
+                    + emp.dept + " | " + emp.manager + " |\r\n");
+        }
+        try {
+            new File("./reports/").mkdir();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(new                                 File("./reports/" + filename)));
+            writer.write(sb.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -103,21 +113,26 @@ public class App {
             }
         }
     }
-    /**
-    public ArrayList<Employee> getSalariesByDepartment() {
+
+    public ArrayList<Employee> getSalariesByRole() {
         try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-          "SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary "
-                +  "FROM employees, salaries, dept_emp, departments "
-                +  "WHERE employees.emp_no = salaries.emp_no "
-                +  "AND employees.emp_no = dept_emp.emp_no "
-                +  "AND dept_emp.dept_no = departments.dept_no "
-                +  "AND salaries.to_date = '9999-01-01' "
-                +  "AND departments.dept_name = 'Sales'"
-                +  "ORDER BY employees.emp_no ASC  ";
+                 " SELECT employees.emp_no, employees.first_name, employees.last_name,"
+                 +"titles.title, salaries.salary, departments.dept_name, dept_manager.emp_no"
+                 +"FROM employees, salaries, titles, departments, dept_emp, dept_manager "
+                 +"WHERE employees.emp_no = salaries.emp_no "
+                 +"AND salaries.to_date = '9999-01-01' "
+                 +"AND titles.emp_no = employees.emp_no "
+                 +"AND titles.to_date = '9999-01-01' "
+                 +"AND dept_emp.emp_no = employees.emp_no "
+                 +" AND dept_emp.to_date = '9999-01-01' "
+                 +"AND departments.dept_no = dept_emp.dept_no "
+                 +"AND dept_manager.dept_no = dept_emp.dept_no "
+                 +"AND dept_manager.to_date = '9999-01-01' "
+                 +"AND titles.title = 'Manager' " ;
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -137,7 +152,7 @@ public class App {
             System.out.println("Failed to get salary by departement");
             return null;
         }
-    }**/
+    }
     public Employee getEmployee(int ID)
     {
         try
@@ -211,25 +226,5 @@ public class App {
         }
     }
 
-    /**public void displayEmployee(ArrayList<Employee> employees)
-    {
-        // Check employees is not null
-        if (employees == null)
-        {
-            System.out.println("No employees");
-            return;
-        }
-        // Print header
-        System.out.println(String.format(" %-10s %-15s %-20s ", "Emp No", "First Name", "Last Name"));
-        // Loop over all employees in the list
-        for (Employee emp : employees)
-        {
-            if (emp == null)
-                continue;
-            String emp_string =
-                    String.format(" %-10s %-15s %-20s ",
-                            emp.emp_no, emp.first_name, emp.last_name);
-            System.out.println(emp_string);
-        }
-    }**/
+
 }
