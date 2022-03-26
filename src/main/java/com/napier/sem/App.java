@@ -18,7 +18,7 @@ public class App {
         } else {
             app.connect(args[0], Integer.parseInt(args[1]));
         }
-        ArrayList<Employee> employees = app.getSalariesByRole();
+        ArrayList<Employee> employees = app.getSalariesByRole("Manager");
         app.outputEmployees(employees, "ManagerSalaries.md");
 
         // Disconnect from database
@@ -114,7 +114,7 @@ public class App {
         }
     }
 
-    public ArrayList<Employee> getSalariesByRole() {
+    public ArrayList<Employee> getSalariesByRole(String Employee) {
         try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
