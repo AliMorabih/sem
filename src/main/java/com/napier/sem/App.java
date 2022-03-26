@@ -117,7 +117,7 @@ public class App {
         }
     }
 
-    /**   public void printSalarybydep(ArrayList<Employee> employees)
+    public void printSalarybydep(ArrayList<Employee> employees)
     {
         // Check employees is not null
         if (employees == null)
